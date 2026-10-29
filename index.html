@@ -4,7 +4,22 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>upwatch</title>
+    <meta name="description" content="Upwatch — uptime monitoring dashboard and public status page. A frontend portfolio project built with React, TypeScript, TanStack Query and MSW." />
+    <meta name="theme-color" content="#f8f9fb" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121318" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content="Upwatch — uptime monitoring dashboard" />
+    <meta property="og:description" content="Live uptime and latency for your endpoints, with a public status page." />
+    <meta property="og:type" content="website" />
+    <title>Upwatch</title>
+    <script>
+      // Apply the theme before first paint to avoid a light/dark flash. Mirrors ThemeProvider.
+      try {
+        var pref = localStorage.getItem('upwatch.theme')
+        var dark = pref === 'dark' || (pref !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.classList.toggle('dark', dark)
+        document.documentElement.style.colorScheme = dark ? 'dark' : 'light'
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>
